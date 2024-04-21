@@ -577,7 +577,7 @@ export const summary = {
     },
     {
       name: "Medium",
-      total: 2210,
+      total: 3010,
     },
     {
       name: "Normal",
@@ -585,7 +585,7 @@ export const summary = {
     },
     {
       name: "Low",
-      total: 2290,
+      total: 290,
     },
   ];
   
