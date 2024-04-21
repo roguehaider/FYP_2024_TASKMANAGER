@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
+import { useSelector } from "react-redux";
 
 const Login = () => {
-  const user = "";
+  // const { user } = useSelector((state) => state.auth);
+  const {user} = "";
+
   const {
     register,
     handleSubmit,
@@ -16,9 +19,11 @@ const Login = () => {
   const submitHandler = async (data) => {
     console.log("submit");
   };
-  useEffect(() => {
-    user && navigate("/dashboard");
-  }, [user]);
+    useEffect(() => {
+      user && navigate("/dashboard");
+    }, [user]);
+
+
 
   return (
     <div className='w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-[#f3f4f6]'>
