@@ -52,7 +52,7 @@ const Login = () => {
           className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'
         >
           <div className=''>
-            <p className='text-blue-600 text-3xl font-bold text-center'>
+            <p className='text-blue-900 text-3xl font-bold text-center'>
               Welcome back!
             </p>
             <p className='text-center text-base text-gray-700 '>
@@ -84,7 +84,7 @@ const Login = () => {
               error={errors.password ? errors.password.message : ""}
             />
 
-            <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
+            <span className='text-sm text-gray-500 hover:text-blue-900 hover:underline cursor-pointer'>
               Forget Password?
             </span>
 
