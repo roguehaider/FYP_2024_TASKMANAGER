@@ -14,7 +14,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Rogue Asante",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -121,7 +121,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Rogue Asante",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -261,7 +261,7 @@ export const summary = {
           },
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Rogue Asante",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -306,7 +306,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Rogue Asante",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -393,7 +393,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Rogue Asante",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -480,7 +480,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Rogue Asante",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -556,7 +556,7 @@ export const summary = {
       },
       {
         _id: "65c202d4aa62f32ffd1303cc",
-        name: "Codewave Asante",
+        name: "Rogue Asante",
         title: "Administrator",
         role: "Admin",
         createdAt: "2024-02-06T09:58:44.794Z",
@@ -603,7 +603,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Rogue Asante",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -705,7 +705,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Rogue Asante",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -801,21 +801,21 @@ export const summary = {
           type: "started",
           activity: "Project completed!!",
           date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Rogue" },
           _id: "65c51b998064dfd208b3f9",
         },
         {
           type: "commented",
           activity: "Project completed!!",
           date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Rogue" },
           _id: "65c51b98064df97d208b3f9",
         },
         {
           type: "completed",
           activity: "Project completed!!",
           date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Rogue" },
           _id: "65c51b998064df97d208b3f9",
         },
       ],
@@ -853,7 +853,7 @@ export const summary = {
         },
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Rogue Asante",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -896,7 +896,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Rogue Asante",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -978,7 +978,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Rogue Asante",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -1060,7 +1060,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Rogue Asante",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -1101,7 +1101,7 @@ export const summary = {
   
   export const user = {
     _id: "662f32ffd1303cc",
-    name: "Codewave",
+    name: "Rogue",
     title: "Administrator",
     role: "Admin",
     email: "admin@mts.com",
@@ -1132,7 +1132,7 @@ export const summary = {
     {
       _id: "2",
       type: "assigned",
-      activity: "task to Codewave Asante",
+      activity: "task to Rogue Asante",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },
@@ -1148,14 +1148,14 @@ export const summary = {
     {
       _id: "5",
       type: "bug",
-      activity: "bug to Codewave Asante",
+      activity: "bug to Rogue Asante",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },
     {
       _id: "4",
       type: "completed",
-      activity: "Codewave Asante has completed the task assigned",
+      activity: "Rogue Asante has completed the task assigned",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },

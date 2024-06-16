@@ -102,7 +102,7 @@ function App() {
     <main className="w-full min-h-screen bg-[#f3f4f6]">
       <Routes>
         <Route element={<Layout />}>
-          <Route index path="/" element={<Navigate to ="/log-in" />} />
+          <Route index path="/" element={<Navigate to ="/login" />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/completed/:status" element={<Tasks />} />
@@ -113,7 +113,7 @@ function App() {
           <Route path="/task/:id" element={<TaskDetails />} />
         </Route>
 
-        <Route path="/log-in" element={<Login />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
 
       <Toaster richColors />
