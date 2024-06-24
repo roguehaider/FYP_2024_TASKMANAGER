@@ -238,8 +238,7 @@ export const getTask = async (req, res) => {
       .populate({
         path: "activities.by",
         select: "name",
-      })
-      // .sort({ _id: -1 });
+      });
 
     res.status(200).json({
       status: true,
