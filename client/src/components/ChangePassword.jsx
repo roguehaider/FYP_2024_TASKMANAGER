@@ -27,6 +27,7 @@ const ChangePassword = ({ open, setOpen }) => {
       toast.success("Password Changed Successfully!");
       setTimeout(() => {
         setOpen(false);
+        window.location.reload();
       }, 1000);
     } catch (err) {
       console.log(err);

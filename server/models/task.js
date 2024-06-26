@@ -12,7 +12,7 @@ const taskSchema = new Schema(
     stage: {
       type: String,
       default: "todo",
-      enum: ["todo", "in progress", "completed"],
+      enum: ["todo", "inprogress", "completed"],
     },
     activities: [
       {
@@ -22,7 +22,7 @@ const taskSchema = new Schema(
           enum: [
             "assigned",
             "started",
-            "in progress",
+            "inprogress",
             "bug",
             "completed",
             "commented",

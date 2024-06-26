@@ -32,6 +32,7 @@ const AddUser = ({ open, setOpen, userData }) => {
         toast.success("User Updated Successfully!");
         setTimeout(() => {
           setOpen(false);
+          window.location.reload();
         }, 1000);
         if (userData?._id === user > data._id) {
           dispatch(setCredentials({ ...result.user }));
@@ -46,6 +47,7 @@ const AddUser = ({ open, setOpen, userData }) => {
       }
       setTimeout(() => {
         setOpen(false);
+        window.location.reload();
       }, 1000);
     } catch (error) {
       console.log(error)

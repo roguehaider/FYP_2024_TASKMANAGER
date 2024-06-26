@@ -154,7 +154,7 @@ const Dashboard = () => {
 
   const totals = data?.tasks || {
     completed: 0,
-    "in progress": 0,
+    inprogress: 0,
     todo: 0,
   };
 
@@ -176,7 +176,7 @@ const Dashboard = () => {
     {
       _id: "3",
       label: "TASK IN PROGRESS ",
-      total: totals["in progress"] || 0,
+      total: totals["inprogress"] || 0,
       icon: <LuClipboardEdit />,
       bg: "bg-[#f59e0b]",
     },

@@ -15,6 +15,7 @@ import Button from "../Button";
 import ConfirmatioDialog from "../Dialogs";
 import AddTask from "./AddTask";
 import { tasks } from "../../assets/data";
+import { useTrashTaskMutation } from "../../redux/slices/api/taskApiSlice";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -25,13 +26,31 @@ const ICONS = {
 const Table = ({ tasks }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
+  const [trashTask] = useTrashTaskMutation();
 
   const deleteClicks = (id) => {
     setSelected(id);
     setOpenDialog(true);
   };
   const [openEdit, setOpenEdit] = useState(false);
-  const deleteHandler = () => {};
+
+  const deleteHandler = async () => {
+    try {
+      const res = await trashTask({
+        id: selected,
+        isTrashed: "trash",
+      }).unwrap();
+      toast.success(res?.message);
+
+      setTimeout(() => {
+        setOpenDialog(false);
+        window.location.reload();
+      }, 500);
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
   const TableHeader = () => (
     <thead className="w-full border-b border-gray-300">
