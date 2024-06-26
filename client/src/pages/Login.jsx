@@ -3,21 +3,38 @@ import { useForm } from "react-hook-form";
 import { useNavigate} from "react-router-dom";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../redux/slices/api/authApiSlice";
+import { toast } from "sonner";
+import { setCredentials } from "../redux/slices/authSlice";
+import Loader from "../components/Loader";
 
 const Login = () => {
-  // const { user } = useSelector((state) => state.auth);
-  const {user} = "";
+  const { user } = useSelector((state) => state.auth);
+  // const {user} = "";
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [login, {isLoading}] = useLoginMutation()
 
   const submitHandler = async (data) => {
-    console.log("submit");
+    try {
+      const result = await login(data).unwrap();
+      dispatch(setCredentials(result))
+      navigate("/");
+      // console.log(result);
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.message)
+      
+    }
   };
     useEffect(() => {
       user && navigate("/dashboard");
@@ -52,7 +69,7 @@ const Login = () => {
           className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'
         >
           <div className=''>
-            <p className='text-blue-600 text-3xl font-bold text-center'>
+            <p className='text-blue-900 text-3xl font-bold text-center'>
               Welcome back!
             </p>
             <p className='text-center text-base text-gray-700 '>
@@ -84,17 +101,17 @@ const Login = () => {
               error={errors.password ? errors.password.message : ""}
             />
 
-            <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
+            <span className='text-sm text-gray-500 hover:text-blue-900 hover:underline cursor-pointer'>
               Forget Password?
             </span>
 
-            <Button
+           { isLoading ? <Loader/> : <Button
               type='submit'
               label='Submit'
               className='w-full h-10 bg-blue-700 text-white rounded-full'
-            />
+            />}
           </div>
-        </form>
+        </form> 
       </div>
     </div>
   </div>

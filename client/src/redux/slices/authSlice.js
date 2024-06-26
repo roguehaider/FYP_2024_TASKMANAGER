@@ -4,8 +4,8 @@ import { user } from "../../assets/data";//dummy data
 const initialState = {
   user: localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
-    //: null,
-    :user,
+    : null,
+    // :user,
 
   isSidebarOpen: false,
 };
