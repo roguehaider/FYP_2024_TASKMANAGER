@@ -13,6 +13,7 @@ import Table from "../components/task/Table";
 import ConfirmatioDialog from "../components/Dialogs";
 import AddTask from "../components/task/AddTask";
 import { useGetAllTaskQuery } from "../redux/slices/api/taskApiSlice";
+import { useSelector } from "react-redux";
 
 // Task statuses
 const STATUS_MAP = {
@@ -36,6 +37,7 @@ const TASK_TYPE = {
 
 const Tasks = () => {
   const params = useParams();
+  const { user } = useSelector((state) => state.auth);
 
   const deleteClicks = () => {};
   const deleteHandler = () => {};
@@ -60,7 +62,7 @@ const Tasks = () => {
       <div className=" flex items-center justify-between mb-4">
         <Title title={status ? `${STATUS_MAP[status]} Tasks` : "Tasks"} />
 
-        {!status && (
+        {!status && user?.isAdmin && ( // Conditionally render based on isAdmin
           <Button
             onClick={() => setOpen(true)}
             label="Create Task"

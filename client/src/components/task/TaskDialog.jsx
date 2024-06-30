@@ -9,7 +9,10 @@ import { Menu, Transition } from "@headlessui/react";
 import AddTask from "./AddTask";
 import AddSubTask from "./AddSubTask";
 import ConfirmatioDialog from "../Dialogs";
-import { useDuplicateTaskMutation, useTrashTaskMutation } from "../../redux/slices/api/taskApiSlice";
+import {
+  useDuplicateTaskMutation,
+  useTrashTaskMutation,
+} from "../../redux/slices/api/taskApiSlice";
 import { toast } from "sonner";
 
 const TaskDialog = ({ task }) => {
@@ -150,7 +153,7 @@ const TaskDialog = ({ task }) => {
         key={new Date().getTime()}
       />
 
-      <AddSubTask open={open} setOpen={setOpen} />
+      <AddSubTask open={open} setOpen={setOpen} id={task._id} />
 
       <ConfirmatioDialog
         open={openDialog}

@@ -16,6 +16,7 @@ import ConfirmatioDialog from "../Dialogs";
 import AddTask from "./AddTask";
 import { tasks } from "../../assets/data";
 import { useTrashTaskMutation } from "../../redux/slices/api/taskApiSlice";
+import { useSelector } from "react-redux";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -27,6 +28,7 @@ const Table = ({ tasks }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
   const [trashTask] = useTrashTaskMutation();
+  const { user } = useSelector((state) => state.auth);
 
   const deleteClicks = (id) => {
     setSelected(id);
@@ -50,6 +52,11 @@ const Table = ({ tasks }) => {
       console.log(err);
       toast.error(err?.data?.message || err.error);
     }
+  };
+
+  const editTaskHandler = (el) => {
+    setSelected(el);
+    setOpenEdit(true);
   };
 
   const TableHeader = () => (
@@ -127,21 +134,23 @@ const Table = ({ tasks }) => {
         </div>
       </td>
 
-      <td className="py-2 flex gap-2 md:gap-4 justify-end">
-        <Button
-          className="text-blue-900 hover:text-blue-500 sm:px-0 text-sm md:text-base"
-          label="Edit"
-          type="button"
-          onClick={() => setOpenEdit(true)}
-        />
+      {user?.isAdmin && ( // Conditionally render based on isAdmin
+        <td className="py-2 flex gap-2 md:gap-4 justify-end">
+          <Button
+            className="text-blue-900 hover:text-blue-500 sm:px-0 text-sm md:text-base"
+            label="Edit"
+            type="button"
+            onClick={() => editTaskHandler(task)}
+          />
 
-        <Button
-          className="text-red-700 hover:text-red-500 sm:px-0 text-sm md:text-base"
-          label="Delete"
-          type="button"
-          onClick={() => deleteClicks(task._id)}
-        />
-      </td>
+          <Button
+            className="text-red-700 hover:text-red-500 sm:px-0 text-sm md:text-base"
+            label="Delete"
+            type="button"
+            onClick={() => deleteClicks(task._id)}
+          />
+        </td>
+      )}
     </tr>
   );
   return (
@@ -162,7 +171,7 @@ const Table = ({ tasks }) => {
       <AddTask
         open={openEdit}
         setOpen={setOpenEdit}
-        task={tasks}
+        task={selected}
         key={new Date().getTime()}
       />
 
