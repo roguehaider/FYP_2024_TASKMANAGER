@@ -19,25 +19,25 @@ const linkData = [
     icon: <MdDashboard />,
   },
   {
-    label: "Tasks",
+    label: "Projects",
     link: "tasks",
     icon: <FaTasks />,
   },
-  {
-    label: "Completed",
-    link: "completed/completed",
-    icon: <MdTaskAlt />,
-  },
-  {
-    label: "In Progress",
-    link: "inprogress/inprogress",
-    icon: <MdOutlinePendingActions />,
-  },
-  {
-    label: "To Do",
-    link: "todo/todo",
-    icon: <MdOutlinePendingActions />,
-  },
+  // {
+  //   label: "Completed",
+  //   link: "completed/completed",
+  //   icon: <MdTaskAlt />,
+  // },
+  // {
+  //   label: "In Progress",
+  //   link: "inprogress/inprogress",
+  //   icon: <MdOutlinePendingActions />,
+  // },
+  // {
+  //   label: "To Do",
+  //   link: "todo/todo",
+  //   icon: <MdOutlinePendingActions />,
+  // },
   {
     label: "Team",
     link: "team",

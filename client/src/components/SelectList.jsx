@@ -11,7 +11,10 @@ const DISPLAY_NAMES = {
   HIGH: "High",
   MEDIUM:"Medium",
   NORMAL: "Normal",
-  LOW: "Low"
+  LOW: "Low",
+  EPIC: "Epic",
+  STORY: "Story",
+  BUG: "Bug"
 };
 
 const SelectList = ({ lists, selected, setSelected, label }) => {
