@@ -4,16 +4,6 @@ const taskSchema = new Schema(
   {
     title: { type: String, required: true },
     date: { type: Date, default: new Date() },
-    priority: {
-      type: String,
-      default: "normal",
-      enum: ["high", "medium", "normal", "low"],
-    },
-    stage: {
-      type: String,
-      default: "todo",
-      enum: ["todo", "inprogress", "completed"],
-    },
     activities: [
       {
         type: {
@@ -22,7 +12,7 @@ const taskSchema = new Schema(
           enum: [
             "assigned",
             "started",
-            "inprogress",
+            "in progress",
             "bug",
             "completed",
             "commented",
@@ -33,15 +23,27 @@ const taskSchema = new Schema(
         by: { type: Schema.Types.ObjectId, ref: "User" },
       },
     ],
-
     subTasks: [
       {
         title: String,
         date: Date,
-        tag: String,
+        type: {
+          type: String,
+          default: "bug",
+          enum: ["story", "epic", "bug"], // Ensure these match exactly
+        },
+        priority: {
+          type: String,
+          default: "normal",
+          enum: ["high", "medium", "normal", "low"], // Ensure these match exactly
+        },
+        stage: {
+          type: String,
+          default: "todo",
+          enum: ["todo", "inprogress", "completed"], // Ensure these match exactly
+        },
       },
     ],
-    assets: [String],
     team: [{ type: Schema.Types.ObjectId, ref: "User" }],
     isTrashed: { type: Boolean, default: false },
   },

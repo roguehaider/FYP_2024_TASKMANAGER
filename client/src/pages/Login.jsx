@@ -49,11 +49,11 @@ const Login = () => {
       <div className='h-full w-full lg:w-2/3 flex flex-col items-center justify-center'>
         <div className='w-full md:max-w-lg 2xl:max-w-3xl flex flex-col items-center justify-center gap-5 md:gap-y-10 2xl:-mt-20'>
           <span className='flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base bordergray-300 text-gray-600'>
-            Manage All Your Task In One Place!
+            Manage All Your Project & Tasks In One Place!
           </span>
           <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-blue-700'>
             <span>Rogue</span>
-            <span>Task Manager</span>
+            <span>Project Manager</span>
           </p>
 
           <div className='cell'>
@@ -101,9 +101,9 @@ const Login = () => {
               error={errors.password ? errors.password.message : ""}
             />
 
-            <span className='text-sm text-gray-500 hover:text-blue-900 hover:underline cursor-pointer'>
+            {/* <span className='text-sm text-gray-500 hover:text-blue-900 hover:underline cursor-pointer'>
               Forget Password?
-            </span>
+            </span> */}
 
            { isLoading ? <Loader/> : <Button
               type='submit'

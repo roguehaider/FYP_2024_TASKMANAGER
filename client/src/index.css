@@ -31,6 +31,29 @@
   animation: rotate-in-up-left 2s ease infinite;
 }
 
+
+/* Example CSS for priority colors */
+.priority-high {
+  background-color: #f56565; /* Red */
+  color: white;
+}
+
+.priority-medium {
+  background-color: #ecc94b; /* Yellow */
+  color: black;
+}
+
+.priority-normal {
+  background-color: #63b3ed; /* Blue */
+  color: white;
+}
+
+.priority-low {
+  background-color: #68d391; /* Green */
+  color: black;
+}
+
+
 @keyframes rotate-in-up-left {
   0% {
     transform-origin: left bottom;
@@ -106,6 +129,8 @@
 .dot:nth-child(3) {
   animation-delay: 0.1s;
 }
+
+
 
 @keyframes pulse {
   0% {

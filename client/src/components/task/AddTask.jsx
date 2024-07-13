@@ -32,9 +32,9 @@ const AddTask = ({ open, setOpen, task }) => {
     title: task?.title || "",
     date: dateFormatter(task?.date || new Date()),
     team: [],
-    stage: "",
-    priority: "",
-    assets: [],
+    // stage: "",
+    // priority: "",
+    // assets: [],
   };
   const {
     register,
@@ -78,7 +78,7 @@ const AddTask = ({ open, setOpen, task }) => {
         ? await updateTask({ ...newData, _id: task._id }).unwrap()
         : await createTask(newData).unwrap();
 
-      toast.success("New Task Created");
+      toast.success("New Project Created");
       setTimeout(() => {
         setOpen(false);
         window.location.reload();
@@ -93,34 +93,34 @@ const AddTask = ({ open, setOpen, task }) => {
     setAssets(e.target.files);
   };
 
-  const uploadFile = async (file) => {
-    const storage = getStorage(app);
-    // Create a unique path for each file using its name
-    const storageRef = ref(storage, `uploads/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+  // const uploadFile = async (file) => {
+  //   const storage = getStorage(app);
+  //   // Create a unique path for each file using its name
+  //   const storageRef = ref(storage, `uploads/${file.name}`);
+  //   const uploadTask = uploadBytesResumable(storageRef, file);
 
-    return new Promise((resolve, reject) => {
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          console.log("Uploading");
-        },
-        (error) => {
-          reject(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref)
-            .then((downloadURL) => {
-              uploadedFileURLs.push(downloadURL);
-              resolve();
-            })
-            .catch((error) => {
-              reject(error);
-            });
-        }
-      );
-    });
-  };
+  //   return new Promise((resolve, reject) => {
+  //     uploadTask.on(
+  //       "state_changed",
+  //       (snapshot) => {
+  //         console.log("Uploading");
+  //       },
+  //       (error) => {
+  //         reject(error);
+  //       },
+  //       () => {
+  //         getDownloadURL(uploadTask.snapshot.ref)
+  //           .then((downloadURL) => {
+  //             uploadedFileURLs.push(downloadURL);
+  //             resolve();
+  //           })
+  //           .catch((error) => {
+  //             reject(error);
+  //           });
+  //       }
+  //     );
+  //   });
+  // };
 
   return (
     <>
@@ -130,15 +130,15 @@ const AddTask = ({ open, setOpen, task }) => {
             as="h2"
             className="text-base font-bold leading-6 text-gray-900 mb-4"
           >
-            {task ? "UPDATE TASK" : "ADD TASK"}
+            {task ? "UPDATE Project" : "ADD Project"}
           </Dialog.Title>
 
           <div className="mt-2 flex flex-col gap-6">
             <Textbox
-              placeholder="Task Title"
+              placeholder="Project Title"
               type="text"
               name="title"
-              label="Task Title"
+              label="Project Title"
               className="w-full rounded"
               register={register("title", { required: "Title is required" })}
               error={errors.title ? errors.title.message : ""}
@@ -147,19 +147,19 @@ const AddTask = ({ open, setOpen, task }) => {
             <UserList setTeam={setTeam} team={team} />
 
             <div className="flex gap-4">
-              <SelectList
+              {/* <SelectList
                 label="Task Stage"
                 lists={LISTS}
                 selected={stage}
                 setSelected={setStage}
-              />
+              /> */}
 
               <div className="w-full">
                 <Textbox
                   placeholder="Date"
                   type="date"
                   name="date"
-                  label="Task Date"
+                  label="Project Start Date"
                   className="w-full rounded"
                   register={register("date", {
                     required: "Date is required!",
@@ -169,7 +169,7 @@ const AddTask = ({ open, setOpen, task }) => {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <SelectList
                 label="Priority Level"
                 lists={PRIORIRY}
@@ -194,7 +194,7 @@ const AddTask = ({ open, setOpen, task }) => {
                   <span>Add Assets</span>
                 </label>
               </div>
-            </div>
+            </div> */}
 
             <div className="bg-gray-50 py-6 sm:flex sm:flex-row-reverse gap-4">
               {uploading ? (

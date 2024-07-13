@@ -19,25 +19,25 @@ const linkData = [
     icon: <MdDashboard />,
   },
   {
-    label: "Tasks",
+    label: "Projects",
     link: "tasks",
     icon: <FaTasks />,
   },
-  {
-    label: "Completed",
-    link: "completed/completed",
-    icon: <MdTaskAlt />,
-  },
-  {
-    label: "In Progress",
-    link: "inprogress/inprogress",
-    icon: <MdOutlinePendingActions />,
-  },
-  {
-    label: "To Do",
-    link: "todo/todo",
-    icon: <MdOutlinePendingActions />,
-  },
+  // {
+  //   label: "Completed",
+  //   link: "completed/completed",
+  //   icon: <MdTaskAlt />,
+  // },
+  // {
+  //   label: "In Progress",
+  //   link: "inprogress/inprogress",
+  //   icon: <MdOutlinePendingActions />,
+  // },
+  // {
+  //   label: "To Do",
+  //   link: "todo/todo",
+  //   icon: <MdOutlinePendingActions />,
+  // },
   {
     label: "Team",
     link: "team",
@@ -85,7 +85,7 @@ const Sidebar = () => {
         <p className='bg-blue-900 p-2 rounded-full'>
           <MdOutlineAddTask className='text-white text-2xl font-black' />
         </p>
-        <span className='font-bold text-black'>TaskyRogue</span>
+        <span className='font-bold text-black'>Rogue Project Manager</span>
       </h1>
 
       <div className='flex-1 flex flex-col gap-y-5 py-8'>
@@ -94,12 +94,12 @@ const Sidebar = () => {
         ))}
       </div>
 
-      <div className=''>
+      {/* <div className=''>
         <button className='w-full flex gap-2 p-2 items-center text-lg text-gray-800'>
           <MdSettings />
           <span>Settings</span>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

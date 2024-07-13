@@ -81,11 +81,12 @@ const Users = () => {
   const TableHeader = () => (
     <thead className="border-b border-gray-300">
       <tr className="text-black text-left">
-        <th className="py-2">Full Name</th>
-        <th className="py-2">Title</th>
-        <th className="py-2">Email</th>
-        <th className="py-2">Role</th>
-        <th className="py-2">Active</th>
+        <th className="py-2 px-4">Full Name</th>
+        <th className="py-2 px-4">Title</th>
+        <th className="py-2 px-4">Email</th>
+        <th className="py-2 px-4">Role</th>
+        <th className="py-2 px-4">Active</th>
+        <th className="py-2 px-4">Actions</th>
       </tr>
     </thead>
   );
@@ -119,9 +120,9 @@ const Users = () => {
         </button>
       </td>
 
-      <td className="p-2 flex gap-4 justify-end">
+      <td className="p-2 flex gap-4 ">
         <Button
-          className="text-blue-600 hover:text-blue-500 font-semibold sm:px-0"
+          className="text-blue-600 hover:text-blue-700 font-semibold sm:px-0"
           label="Edit"
           type="button"
           onClick={() => editClick(user)}
@@ -145,7 +146,7 @@ const Users = () => {
           <Button
             label="Add New User"
             icon={<IoMdAdd className="text-lg" />}
-            className="flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-md 2xl:py-2.5"
+            className="flex flex-row-reverse gap-1 items-center bg-blue-800 text-white rounded-md 2xl:py-2.5"
             onClick={() => setOpen(true)}
           />
         </div>
