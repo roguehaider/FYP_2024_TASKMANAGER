@@ -164,7 +164,7 @@ export const duplicateTask = async (req, res) => {
 
     res
       .status(200)
-      .json({ status: true, message: "Task duplicated successfully." });
+      .json({ status: true, message: "Project Duplicated Successfully." });
   } catch (error) {
     console.log(error);
     return res.status(400).json({ status: false, message: error.message });
@@ -242,12 +242,18 @@ export const dashboardStatistics = async (req, res) => {
     // Group tasks by priority
     const groupData = Object.entries(
       allTasks.reduce((result, task) => {
-        const { priority } = task;
-
-        result[priority] = (result[priority] || 0) + 1;
+        task.subTasks.forEach(subTask => {
+          const { priority } = subTask;
+    
+          result[priority] = (result[priority] || 0) + 1;
+        });
         return result;
       }, {})
     ).map(([name, total]) => ({ name, total }));
+
+    const totalSubtasks = allTasks.reduce((total, task) => {
+      return total + (task.subTasks ? task.subTasks.length : 0);
+    }, 0);
 
     // calculate total tasks
     const totalTasks = allTasks?.length;
@@ -255,6 +261,7 @@ export const dashboardStatistics = async (req, res) => {
 
     const summary = {
       totalTasks,
+      totalSubtasks,
       last10Task,
       users: isAdmin ? users : [],
       tasks: groupTaskks,
@@ -330,22 +337,22 @@ export const getTask = async (req, res) => {
 export const updateTask = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, date, team, stage, priority, assets } = req.body;
+    const { title, date, team, } = req.body;
 
     const task = await Task.findById(id);
 
     task.title = title;
     task.date = date;
-    task.priority = priority.toLowerCase();
-    task.assets = assets;
-    task.stage = stage.toLowerCase();
+    // task.priority = priority.toLowerCase();
+    // task.assets = assets;
+    // task.stage = stage.toLowerCase();
     task.team = team;
 
     await task.save();
 
     res
       .status(200)
-      .json({ status: true, message: "Task duplicated successfully." });
+      .json({ status: true, message: "Project Updated successfully." });
   } catch (error) {
     console.log(error);
     return res.status(400).json({ status: false, message: error.message });
@@ -364,7 +371,7 @@ export const trashTask = async (req, res) => {
 
     res.status(200).json({
       status: true,
-      message: `Task trashed successfully.`,
+      message: `Project trashed successfully.`,
     });
   } catch (error) {
     console.log(error);

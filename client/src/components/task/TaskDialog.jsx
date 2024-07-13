@@ -76,7 +76,7 @@ const TaskDialog = ({ task }) => {
       onClick: () => setOpenEdit(true),
     },
     {
-      label: "Add Sub-Task",
+      label: "Add Task",
       icon: <MdAdd className="mr-2 h-5 w-5" aria-hidden="true" />,
       onClick: () => setOpen(true),
     },

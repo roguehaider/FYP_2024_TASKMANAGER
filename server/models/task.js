@@ -12,7 +12,7 @@ const taskSchema = new Schema(
           enum: [
             "assigned",
             "started",
-            "inprogress",
+            "in progress",
             "bug",
             "completed",
             "commented",

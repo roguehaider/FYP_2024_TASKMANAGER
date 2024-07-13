@@ -85,7 +85,7 @@ const Sidebar = () => {
         <p className='bg-blue-900 p-2 rounded-full'>
           <MdOutlineAddTask className='text-white text-2xl font-black' />
         </p>
-        <span className='font-bold text-black'>TaskyRogue</span>
+        <span className='font-bold text-black'>Rogue Project Manager</span>
       </h1>
 
       <div className='flex-1 flex flex-col gap-y-5 py-8'>

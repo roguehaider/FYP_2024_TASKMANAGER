@@ -75,7 +75,7 @@ const TASKTYPEICON = {
       <MdOutlineDoneAll size={24} />
     </div>
   ),
-  inprogress: (
+  "in progress": (
     <div className="w-8 h-8 flex items-center justify-center rounded-full bg-violet-600 text-white">
       <GrInProgress size={16} />
     </div>
@@ -105,7 +105,7 @@ const formatStage = (stage) => {
 
 const TaskDetails = () => {
   const { id } = useParams();
-  const { data, isLoading , refetch } = useGetSingleTaskQuery(id);
+  const { data, isLoading, refetch } = useGetSingleTaskQuery(id);
   const [selected, setSelected] = useState(0);
   const task = data?.task;
 
@@ -129,7 +129,7 @@ const TaskDetails = () => {
               {/* LEFT */}
               <div className="w-full md:w-1/2 space-y-8">
                 <div className="flex items-center gap-5">
-                  <div
+                  {/* <div
                     className={clsx(
                       "flex gap-1 items-center text-base font-semibold px-3 py-1 rounded-full",
                       PRIOTITYSTYELS[task?.priority],
@@ -138,9 +138,9 @@ const TaskDetails = () => {
                   >
                     <span className="text-lg">{ICONS[task?.priority]}</span>
                     <span className="uppercase">{task?.priority} Priority</span>
-                  </div>
+                  </div> */}
 
-                  <div className={clsx("flex items-center gap-2")}>
+                  {/* <div className={clsx("flex items-center gap-2")}>
                     <div
                       className={clsx(
                         "w-4 h-4 rounded-full",
@@ -150,30 +150,30 @@ const TaskDetails = () => {
                     <span className="text-black uppercase">
                       {formatStage(task?.stage)}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <p className="text-gray-500">
-                  Created At: {new Date(task?.date).toDateString()}
+                  Project Date: {new Date(task?.date).toDateString()}
                 </p>
 
                 <div className="flex items-center gap-8 p-4 border-y border-gray-200">
-                  <div className="space-x-2">
+                  {/* <div className="space-x-2">
                     <span className="font-semibold">Assets :</span>
                     <span>{task?.assets?.length}</span>
-                  </div>
+                  </div> */}
 
-                  <span className="text-gray-400">|</span>
+                  {/* <span className="text-gray-400">|</span> */}
 
                   <div className="space-x-2">
-                    <span className="font-semibold">Sub-Task :</span>
+                    <span className="font-semibold">Total Tasks :</span>
                     <span>{task?.subTasks?.length}</span>
                   </div>
                 </div>
 
                 <div className="space-y-4 py-6">
                   <p className="text-gray-600 font-semibold test-sm">
-                    TASK TEAM
+                    PROJECT MEMBERS
                   </p>
                   <div className="space-y-3">
                     {task?.team?.map((m, index) => (
@@ -200,9 +200,9 @@ const TaskDetails = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4 py-6">
+                {/* <div className="space-y-4 py-6">
                   <p className="text-gray-500 font-semibold text-sm">
-                    SUB-TASKS
+                    TASKS
                   </p>
                   <div className="space-y-8">
                     {task?.subTasks?.map((el, index) => (
@@ -227,11 +227,11 @@ const TaskDetails = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* RIGHT */}
               <div className="w-full md:w-1/2 space-y-8">
-                <p className="text-lg font-semibold">ASSETS</p>
+                {/* <p className="text-lg font-semibold">ASSETS</p>
 
                 <div className="w-full grid grid-cols-2 gap-4">
                   {task?.assets?.map((el, index) => (
@@ -242,13 +242,44 @@ const TaskDetails = () => {
                       className="w-full rounded h-28 md:h-36 2xl:h-52 cursor-pointer transition-all duration-700 hover:scale-125 hover:z-50"
                     />
                   ))}
+                </div> */}
+
+                <div className="space-y-4 py-6">
+                  <p className="text-gray-500 font-semibold text-sm">TASKS</p>
+                  <div className="space-y-8">
+                    {task?.subTasks?.map((el, index) => (
+                      <div key={index} className="flex gap-3">
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-violet-50-200">
+                          <MdTaskAlt className="text-violet-600" size={26} />
+                        </div>
+
+                        <div className="space-y-1">
+                          <div className="flex gap-2 items-center">
+                            <span className="text-sm text-gray-500">
+                              {new Date(el?.date).toDateString()}
+                            </span>
+
+                            <span className="px-2 py-0.5 text-center text-sm rounded-full bg-violet-100 text-violet-700 font-semibold">
+                              {el?.type.toUpperCase()}
+                            </span>
+                          </div>
+
+                          <p className="text-gray-700">{el?.title}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </>
         ) : (
           <>
-            <Activities activity={data?.task?.activities} id={id} refetch={refetch} />
+            <Activities
+              activity={data?.task?.activities}
+              id={id}
+              refetch={refetch}
+            />
           </>
         )}
       </Tabs>
