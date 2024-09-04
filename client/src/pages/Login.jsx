@@ -52,8 +52,8 @@ const Login = () => {
             Manage All Your Project & Tasks In One Place!
           </span>
           <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-blue-700'>
-            <span>Rogue</span>
-            <span>Project Manager</span>
+            <span>DevTrack</span>
+            {/* <span>Project Manager</span> */}
           </p>
 
           <div className='cell'>

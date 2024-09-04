@@ -56,7 +56,7 @@ const TaskCard = ({ task }) => {
               className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])}
             /> */}
             <h4 className="line-clamp-1 text-black">{task?.title}</h4>
-            {user?.isAdmin && <TaskDialog task={task} />}
+            <TaskDialog task={task} />
           </div>
           <span className="text-sm text-gray-600">
             Starting Date: {formatDate(new Date(task?.date))}
