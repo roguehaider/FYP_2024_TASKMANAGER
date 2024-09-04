@@ -66,7 +66,10 @@ const Table = ({ tasks }) => {
         <th className="py-2 line-clamp-1">Created At</th>
         <th className="py-2"> Activity & Tasks</th>
         <th className="py-2">Project Members</th>
-        <th className="py-2 px-3">Actions</th>
+
+        {user?.isAdmin && ( // Conditionally render based on isAdmin
+          <th className="py-2 px-3">Actions</th>
+        )}
       </tr>
     </thead>
   );

@@ -14,13 +14,14 @@ import {
   useTrashTaskMutation,
 } from "../../redux/slices/api/taskApiSlice";
 import { toast } from "sonner";
+import { useSelector } from "react-redux";
 
 const TaskDialog = ({ task }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const [selected, setSelected] = useState(null);
 
+  const { user } = useSelector((state) => state.auth);
   const [deletTask] = useTrashTaskMutation();
   const [duplicateTask] = useDuplicateTaskMutation();
 
@@ -41,8 +42,7 @@ const TaskDialog = ({ task }) => {
     }
   };
 
-  const deleteClicks = (id) => {
-    // setSelected(id);
+  const deleteClicks = () => {
     setOpenDialog(true);
   };
 
@@ -70,22 +70,22 @@ const TaskDialog = ({ task }) => {
       icon: <AiTwotoneFolderOpen className="mr-2 h-5 w-5" aria-hidden="true" />,
       onClick: () => navigate(`/task/${task._id}`),
     },
-    {
+    user?.isAdmin && {
       label: "Edit",
       icon: <MdOutlineEdit className="mr-2 h-5 w-5" aria-hidden="true" />,
       onClick: () => setOpenEdit(true),
     },
-    {
+    user?.isAdmin && {
       label: "Add Task",
       icon: <MdAdd className="mr-2 h-5 w-5" aria-hidden="true" />,
       onClick: () => setOpen(true),
     },
-    {
+    user?.isAdmin && {
       label: "Duplicate",
       icon: <HiDuplicate className="mr-2 h-5 w-5" aria-hidden="true" />,
       onClick: () => duplicateHandler(),
     },
-  ];
+  ].filter(Boolean); // Filter out falsy values
 
   return (
     <>
@@ -123,24 +123,26 @@ const TaskDialog = ({ task }) => {
                 ))}
               </div>
 
-              <div className="px-1 py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={() => deleteClicks(task._id)}
-                      className={`${
-                        active ? "bg-blue-500 text-white" : "text-red-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      <RiDeleteBin6Line
-                        className="mr-2 h-5 w-5 text-red-400"
-                        aria-hidden="true"
-                      />
-                      Delete
-                    </button>
-                  )}
-                </Menu.Item>
-              </div>
+              {user?.isAdmin && (
+                <div className="px-1 py-1">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        onClick={() => deleteClicks(task._id)}
+                        className={`${
+                          active ? "bg-blue-500 text-white" : "text-red-900"
+                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        <RiDeleteBin6Line
+                          className="mr-2 h-5 w-5 text-red-400"
+                          aria-hidden="true"
+                        />
+                        Delete
+                      </button>
+                    )}
+                  </Menu.Item>
+                </div>
+              )}
             </Menu.Items>
           </Transition>
         </Menu>
